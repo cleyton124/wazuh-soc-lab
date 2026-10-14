@@ -266,7 +266,3 @@ Para cada simulação, **execute**, **localize** o alerta no Wazuh, **aplique** 
 - [ ] **Estudar** para Security+ e ISO 27001 Foundation.
 
 ---
-
-## ⚠️ Aviso
-
-Laboratório educacional, executado em ambiente próprio e controlado. Não versione credenciais, chaves de registro nem hostnames reais.
