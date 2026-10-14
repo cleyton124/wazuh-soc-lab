@@ -93,10 +93,12 @@ Get-Service -Name Wazuh
 
 Após a conexão do agente, o **Overview** passa a exibir o resumo de agentes e a contagem de alertas das últimas 24 horas, classificados por severidade.
 
-![Figura 4 - Overview com agente ativo e alertas](assets/figura-4-overview-agente-ativo-1.png)
+[Figura 4 - Overview com agente ativo e alertas]
+<img src="./assets/Screenshot%202026-10-10%20at%2021-04-23%20Wazuh.png" width="85%" alt="Figura 3 - Endpoints com agente ativo">
 *Figura 4: Overview com 1 agente ativo e alertas das últimas 24 horas (Alta: 1 | Média: 319 | Baixa: 127).*
 
-![Figura 5 - Overview com evolução da contagem de alertas](assets/figura-5-overview-agente-ativo-2.png)
+[Figura 5 - Overview com evolução da contagem de alertas]
+<img src="./assets/Screenshot%202026-10-10%20at%2021-05-30%20Wazuh.png" width="85%" alt="Figura 4 - Overview com agente ativo e alertas">
 *Figura 5: Overview em nova consulta (Alta: 1 | Média: 319 | Baixa: 123). A contagem de baixa severidade variou porque a janela de 24 horas é deslizante.*
 
 **Observações:**
