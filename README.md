@@ -39,7 +39,9 @@ A arquitetura foi projetada de forma ágil e moderna:
 
 Acesse a instância do Wazuh Manager pelo navegador. O **Wazuh Dashboard** centraliza a coleta de logs, os módulos de segurança e as políticas de monitoramento. Na primeira execução, a instância indica que não há agentes registrados e oferece o botão **Deploy new agent**.
 
-![Figura 1 - Overview do Wazuh sem agentes registrados](assets/figura-1-overview-sem-agentes.png)
+![Figura 1 - Overview do Wazuh sem agentes registrados]
+<img src="./assets/Screenshot 2026-10-10 at 20-16-04 Wazuh.png" width="85%" alt="Figura 1 - Overview do Wazuh sem agentes registrados">
+*Figura 1: Acesso ao painel administrativo do Wazuh Cloud via navegador. A instância ainda não possui agentes registrados.*
 *Figura 1: Acesso ao painel administrativo do Wazuh Cloud via navegador. A instância ainda não possui agentes registrados.*
 
 ### 2.2. Implantação e Conexão de Agentes via PowerShell
