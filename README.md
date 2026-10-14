@@ -37,20 +37,17 @@ A arquitetura foi projetada de forma ágil e moderna:
 
 ### 2.1. Acesso ao Wazuh Dashboard (Cloud/Navegador)
 
-Acesse a instância do Wazuh Manager pelo navegador. O **Wazuh Dashboard** centraliza a coleta de logs, os módulos de segurança e as políticas de monitoramento.
+Acesse a instância do Wazuh Manager pelo navegador. O **Wazuh Dashboard** centraliza a coleta de logs, os módulos de segurança e as políticas de monitoramento. Na primeira execução, a instância indica que não há agentes registrados e oferece o botão **Deploy new agent**.
 
-<!-- Mantenha aqui sua imagem da Figura 1 -->
-*Figura 1: Acesso ao painel administrativo do Wazuh Cloud via navegador web.*
-
-<!-- Mantenha aqui sua imagem da Figura 2 -->
-*Figura 2: Visão geral do Wazuh Dashboard e consolidação dos módulos de monitoramento.*
+![Figura 1 - Overview do Wazuh sem agentes registrados](assets/figura-1-overview-sem-agentes.png)
+*Figura 1: Acesso ao painel administrativo do Wazuh Cloud via navegador. A instância ainda não possui agentes registrados.*
 
 ### 2.2. Implantação e Conexão de Agentes via PowerShell
 
-Registre novos endpoints pelo assistente **Agents management > Summary > Deploy new agent**. O assistente gera os parâmetros de registro e o comando de download do pacote do agente.
+Registre novos endpoints pelo assistente **Agents management > Summary > Deploy new agent**. Selecione o pacote **Windows (MSI 32/64 bits)**, informe o endereço do servidor, mantenha o grupo **Default** e copie o comando gerado. O assistente exige privilégios de administrador e PowerShell 3.0 ou superior.
 
-<!-- Mantenha aqui sua imagem da Figura 3 -->
-*Figura 3: Geração da chave e do script de instalação do agente para Windows.*
+![Figura 2 - Assistente Deploy new agent](assets/figura-2-deploy-new-agent.png)
+*Figura 2: Assistente Deploy new agent com a geração do script de instalação do agente para Windows.*
 
 **Execução dos comandos de instalação (PowerShell como Administrador):**
 
@@ -82,19 +79,38 @@ Get-Service -Name Wazuh
 - **Confirme** o status `Running` no serviço.
 - **Verifique** em **Endpoints** se o agente aparece como **Active**, com SO e versão corretos.
 
-<!-- Mantenha aqui o print de Endpoints, se já o tiver -->
-*Figura 4: Endpoint `DESKTOP-19MHES6` ativo (Windows 10, Wazuh v4.14.8).*
+![Figura 3 - Endpoints com agente ativo](assets/figura-3-endpoints-agente-ativo.png)
+*Figura 3: Endpoint `DESKTOP-19MHES6` (ID 001, 192.168.0.111) com status Active, Windows 10 Home, agente v4.14.8, grupo `default`.*
 
 ---
 
-## 📊 3. Monitoramento de Alertas (Threat Hunting)
+## 📊 3. Monitoramento de Alertas
 
-Após a conexão do agente, a telemetria alimenta o módulo **Threat Hunting**. Use-o como tela principal de monitoramento: ele consolida volume, severidade, autenticações, técnicas MITRE ATT&CK e agentes.
+### 3.1. Visão Geral (Overview)
 
-![Wazuh Threat Hunting Dashboard](assets/Screenshot%202026-10-10%20at%2021-05-30%20Wazuh.png)
-*Figura 5: Dashboard Threat Hunting (últimas 24 horas) com volume de alertas, severidade, falhas de autenticação, técnicas MITRE ATT&CK e agentes.*
+Após a conexão do agente, o **Overview** passa a exibir o resumo de agentes e a contagem de alertas das últimas 24 horas, classificados por severidade.
 
-### 3.1. Interpretação dos Painéis
+![Figura 4 - Overview com agente ativo e alertas](assets/figura-4-overview-agente-ativo-1.png)
+*Figura 4: Overview com 1 agente ativo e alertas das últimas 24 horas (Alta: 1 | Média: 319 | Baixa: 127).*
+
+![Figura 5 - Overview com evolução da contagem de alertas](assets/figura-5-overview-agente-ativo-2.png)
+*Figura 5: Overview em nova consulta (Alta: 1 | Média: 319 | Baixa: 123). A contagem de baixa severidade variou porque a janela de 24 horas é deslizante.*
+
+**Observações:**
+
+- **Identifiquei** 1 agente ativo e nenhum desconectado.
+- **Constatei** ausência de alertas críticos (nível 15 ou superior).
+- **Observei** predominância de alertas de severidade média (319 de 443, cerca de 72%).
+- **Validei** a consistência dos números: 1 + 319 + 123 = 443, o mesmo total exibido no Threat Hunting.
+
+### 3.2. Threat Hunting
+
+Use o módulo **Threat Hunting** como tela principal de monitoramento: ele consolida volume, severidade, autenticações, técnicas MITRE ATT&CK e agentes.
+
+![Figura 6 - Wazuh Threat Hunting Dashboard](assets/Screenshot%202026-10-10%20at%2021-05-30%20Wazuh.png)
+*Figura 6: Dashboard Threat Hunting (últimas 24 horas) com volume de alertas, severidade, falhas de autenticação, técnicas MITRE ATT&CK e agentes.*
+
+### 3.3. Interpretação dos Painéis
 
 | Painel | Ação do analista |
 |---|---|
@@ -105,9 +121,9 @@ Após a conexão do agente, a telemetria alimenta o módulo **Threat Hunting**. 
 | **Top 10 MITRE ATT&CK** | Relacione os alertas a táticas e técnicas |
 | **Top 5 agents** | Localize o ativo que concentra os alertas |
 
-### 3.2. Observações da Captura
+### 3.4. Observações da Captura
 
-- **Identifiquei** um pico de aproximadamente 440 alertas em janela curta, concentrado no agente `DESKTOP-19MHES6`.
+- **Identifiquei** um pico de aproximadamente 440 alertas em janela curta (próximo às 21:00), concentrado no agente `DESKTOP-19MHES6`.
 - **Registrei** 1 alerta de nível 12 ou superior e 4 falhas de autenticação.
 - **Mapeei** três técnicas MITRE ATT&CK: Account Manipulation, Domain Policy Modification e Account Access Removal.
 
