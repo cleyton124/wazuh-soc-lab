@@ -1,4 +1,4 @@
-# 🛡️ Enterprise Home SOC Lab: Implantação, Monitoramento e Resposta com Wazuh SIEM (Cloud/SaaS)
+# 🛡️ Home SOC Lab: Implantação, Monitoramento e Resposta com Wazuh SIEM (Cloud/SaaS)
 ---
 
 ## 📋 Sumário Executivo
