@@ -1,9 +1,4 @@
 # 🛡️ Enterprise Home SOC Lab: Implantação, Monitoramento e Resposta com Wazuh SIEM (Cloud/SaaS)
-
-> **Documentação de Engenharia e Operações de Segurança**
-> **Autor / Analista Responsável:** Candidato à vaga de Assistente de SOC 1
-> **Objetivo:** Estabelecer um laboratório prático de alta fidelidade para monitorar endpoints, triar alertas, analisar logs e simular ameaças com base em padrões corporativos de mercado.
-
 ---
 
 ## 📋 Sumário Executivo
@@ -82,7 +77,7 @@ Get-Service -Name Wazuh
 - **Confirme** o status `Running` no serviço.
 - **Verifique** em **Endpoints** se o agente aparece como **Active**, com SO e versão corretos.
 
-![Figura 3 - Endpoints com agente ativo]
+[Figura 3 - Endpoints com agente ativo]
 <img src="./assets/Screenshot%202026-10-10%20at%2021-04-23%20Wazuh.png" width="85%" alt="Figura 3 - Endpoints com agente ativo">
 *Figura 3: Endpoint `DESKTOP-19MHES6` (ID 001, 192.168.0.111) com status Active, Windows 10 Home, agente v4.14.8, grupo `default`.*
 
