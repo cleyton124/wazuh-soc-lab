@@ -39,7 +39,7 @@ A arquitetura foi projetada de forma ágil e moderna:
 
 Acesse a instância do Wazuh Manager pelo navegador. O **Wazuh Dashboard** centraliza a coleta de logs, os módulos de segurança e as políticas de monitoramento. Na primeira execução, a instância indica que não há agentes registrados e oferece o botão **Deploy new agent**.
 
-![Figura 1 - Overview do Wazuh sem agentes registrados]
+[Figura 1 - Overview do Wazuh sem agentes registrados]
 <img src="./assets/Screenshot 2026-10-10 at 20-16-04 Wazuh.png" width="85%" alt="Figura 1 - Overview do Wazuh sem agentes registrados">
 *Figura 1: Acesso ao painel administrativo do Wazuh Cloud via navegador. A instância ainda não possui agentes registrados.*
 *Figura 1: Acesso ao painel administrativo do Wazuh Cloud via navegador. A instância ainda não possui agentes registrados.*
@@ -48,7 +48,8 @@ Acesse a instância do Wazuh Manager pelo navegador. O **Wazuh Dashboard** centr
 
 Registre novos endpoints pelo assistente **Agents management > Summary > Deploy new agent**. Selecione o pacote **Windows (MSI 32/64 bits)**, informe o endereço do servidor, mantenha o grupo **Default** e copie o comando gerado. O assistente exige privilégios de administrador e PowerShell 3.0 ou superior.
 
-![Figura 2 - Assistente Deploy new agent](assets/figura-2-deploy-new-agent.png)
+[Figura 2 - Assistente Deploy new agent]
+<img src="./assets/Screenshot 2026-10-10 at 20-47-27 Wazuh.png" width="85%" alt="Figura 2 - Assistente Deploy new agent">
 *Figura 2: Assistente Deploy new agent com a geração do script de instalação do agente para Windows.*
 
 **Execução dos comandos de instalação (PowerShell como Administrador):**
