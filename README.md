@@ -17,7 +17,7 @@ A arquitetura do laboratório foi projetada de forma ágil e moderna:
 
 *   **SIEM / Central Manager:** Wazuh Cloud (Instância gerenciada acessada diretamente via navegador web)
 *   **Endpoints Monitorados (Agents):**
-    *   **Host 1:** Windows (Monitoramento de logs de eventos do Windows, execução de scripts PowerShell,Sysmon e integridade de diretórios críticos)
+    *   **Host 1:** Windows (Monitoramento de logs de eventos do Windows, execução de scripts PowerShell, Sysmon e integridade de diretórios críticos)
     *   **Host 2:** Linux (Monitoramento de syslogs, serviços de rede e autenticação)
 *   **Método de Implantação do Agente:** Instalação automatizada via script executado em terminal PowerShell com privilégios administrativos.
 
